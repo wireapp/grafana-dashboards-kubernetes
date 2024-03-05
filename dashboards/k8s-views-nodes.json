@@ -296,7 +296,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_info{node=\"$node\"})",
+          "expr": "sum(kube_pod_info{instance=\"$node\"})",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -436,7 +436,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "kube_pod_info{node=\"$node\"}",
+          "expr": "kube_pod_info{instance=\"$node\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -650,7 +650,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "sum(machine_cpu_cores{node=\"$node\"})",
+          "expr": "sum(machine_cpu_cores{instance=\"$node\"})",
           "interval": "$resolution",
           "legendFormat": "",
           "refId": "A"
@@ -779,7 +779,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "machine_memory_bytes{node=\"$node\"}",
+          "expr": "machine_memory_bytes{instance=\"$node\"}",
           "instant": false,
           "interval": "",
           "legendFormat": "",
@@ -1239,7 +1239,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "sum(rate(container_cpu_usage_seconds_total{node=\"$node\", image!=\"\"}[$__rate_interval])) by (pod)",
+          "expr": "sum(rate(container_cpu_usage_seconds_total{instance=\"$node\", image!=\"\"}[$__rate_interval])) by (pod)",
           "interval": "$resolution",
           "legendFormat": "{{ pod }}",
           "refId": "A"
@@ -1334,7 +1334,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "sum(container_memory_working_set_bytes{node=\"$node\", image!=\"\"}) by (pod)",
+          "expr": "sum(container_memory_working_set_bytes{instance=\"$node\", image!=\"\"}) by (pod)",
           "interval": "$resolution",
           "legendFormat": "{{ pod }}",
           "refId": "A"
@@ -2713,7 +2713,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(kubelet_volume_stats_used_bytes{node=\"$node\"}) by (persistentvolumeclaim) / sum(kubelet_volume_stats_capacity_bytes{node=\"$node\"}) by (persistentvolumeclaim)",
+          "expr": "sum(kubelet_volume_stats_used_bytes{instance=\"$node\"}) by (persistentvolumeclaim) / sum(kubelet_volume_stats_capacity_bytes{instance=\"$node\"}) by (persistentvolumeclaim)",
           "interval": "$resolution",
           "legendFormat": "{{ persistentvolumeclaim }}",
           "range": true,
@@ -2811,7 +2811,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "sum(kubelet_volume_stats_used_bytes{node=\"$node\"}) by (persistentvolumeclaim)",
+          "expr": "sum(kubelet_volume_stats_used_bytes{instance=\"$node\"}) by (persistentvolumeclaim)",
           "format": "table",
           "hide": false,
           "interval": "",
@@ -2824,7 +2824,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "sum(kubelet_volume_stats_capacity_bytes{node=\"$node\"}) by (persistentvolumeclaim)",
+          "expr": "sum(kubelet_volume_stats_capacity_bytes{instance=\"$node\"}) by (persistentvolumeclaim)",
           "format": "table",
           "hide": false,
           "interval": "",
@@ -2972,7 +2972,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(kubelet_volume_stats_inodes_used{node=\"$node\"}) by (persistentvolumeclaim) / sum(kubelet_volume_stats_inodes{node=\"$node\"}) by (persistentvolumeclaim) * 100",
+          "expr": "sum(kubelet_volume_stats_inodes_used{instance=\"$node\"}) by (persistentvolumeclaim) / sum(kubelet_volume_stats_inodes{instance=\"$node\"}) by (persistentvolumeclaim) * 100",
           "interval": "$resolution",
           "legendFormat": "{{ persistentvolumeclaim }}",
           "range": true,
